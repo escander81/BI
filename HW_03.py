@@ -52,15 +52,15 @@ print(array)
 
 numberArray =   int(input("What number? "))
 
-minimal = abs(numberArray - array[0])
-count = 0
+minDiff = abs(numberArray - array[0])
+numMin = array[0]
 
-for i in range (1, myArray):
-    count = abs(numberArray - array[i])
-    if count < minimal:
-        minimal = count
-        count = i
-print(f"Number {array[count]} is the closest to {numberArray}")
+for num in array [1:]:
+    currDiff = abs(numberArray - array[num])
+    if currDiff < minDiff:
+        minDiff = currDiff
+        numMin = num 
+print(f"Number {numMin} is the closest to {numberArray}")
 
 """    
 *Задача 20: * В настольной игре Скрабл (Scrabble) каждая буква имеет определенную ценность. 
@@ -86,3 +86,31 @@ Q, Z – 10 очков.
 ноутбук
     12
 """
+
+
+eng = 'qwertyuiopasdfghjklzxcvbnm'
+
+rus = 'йцукенгшщзхъфывапролджэячсмитьбюё'
+
+list_English = {1:'AEIOULNSTR', 2:'DG', 3:'BCMP', 4:'FHVWY', 5:"K" , 8:'JX', 10:'QZ'}
+list_Russian = {1:'АВЕИНОРСТ', 2:'ДКЛМПУ', 3:'БГЁЬЯ', 4:'ЙЫ', 5:'ЖЗХЦЧ', 8:'ШЭЮ', 10:'ФШЪ'}
+
+word = input("Enter the word in English or Russian: ")
+
+if word[0].lower() in eng:
+    summa = 0
+    for letter in word:
+        for key, value in list_English.items():
+            if letter.upper() in value:
+                summa += key
+    print(f"Value of your word is = {summa}")
+else:
+    if word[0].lower() in rus:
+        summa = 0
+        for letter in word:
+
+            for key, value in list_Russian.items():
+                if letter.upper() in value:
+                    summa += key
+    print(f"Value of your word is = {summa}")
+
